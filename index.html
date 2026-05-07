@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Stars – Купить звёзды Telegram дёшево</title>
+    <title>Telegram Stars – Купить звёزды Telegram دينة</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -493,7 +493,7 @@
         <!-- Header -->
         <div class="header">
             <h1>✨ Telegram Stars</h1>
-            <p>Покупайте звёзды Telegram по лучшим ценам</p>
+            <p>Покupайте звёзды Telegram по лучшим ценам</p>
         </div>
 
         <!-- Referral Banner -->
@@ -537,29 +537,29 @@
         <div class="card">
             <div class="card-title">⭐ Выберите пакет звёзд</div>
             <div class="prices-grid" id="pricesGrid">
-                <div class="price-item" data-stars="500" data-ton="1.5">
+                <div class="price-item" data-stars="500" data-ton="2">
                     <div class="stars">500 ★</div>
-                    <div class="ton">1.5 TON</div>
+                    <div class="ton">2 TON</div>
                 </div>
-                <div class="price-item" data-stars="1000" data-ton="3">
+                <div class="price-item" data-stars="1000" data-ton="4">
                     <div class="stars">1000 ★</div>
-                    <div class="ton">3 TON</div>
+                    <div class="ton">4 TON</div>
                 </div>
-                <div class="price-item" data-stars="2500" data-ton="7.4">
+                <div class="price-item" data-stars="2500" data-ton="10">
                     <div class="stars">2500 ★</div>
-                    <div class="ton">7.4 TON</div>
+                    <div class="ton">10 TON</div>
                 </div>
-                <div class="price-item" data-stars="5000" data-ton="14">
+                <div class="price-item" data-stars="5000" data-ton="18">
                     <div class="stars">5000 ★</div>
-                    <div class="ton">14 TON</div>
+                    <div class="ton">18 TON</div>
                 </div>
-                <div class="price-item" data-stars="10000" data-ton="28">
+                <div class="price-item" data-stars="10000" data-ton="32">
                     <div class="stars">10000 ★</div>
-                    <div class="ton">28 TON</div>
+                    <div class="ton">32 TON</div>
                 </div>
-                <div class="price-item" data-stars="25000" data-ton="60">
+                <div class="price-item" data-stars="25000" data-ton="70">
                     <div class="stars">25000 ★</div>
-                    <div class="ton">60 TON</div>
+                    <div class="ton">70 TON</div>
                 </div>
             </div>
         </div>
@@ -626,17 +626,17 @@
             merchantWallet: 'UQDoqehDPI84Lw4xr6c85szWYRYdZKKglKXZWrIwlS2Ko7Ws',
             refBonusStars: 2,
             minWithdrawStars: 50,
-            botUsername: 'YourBotUsername', // ضع اسم البوت هنا بعد ما تسويه
+            botUsername: 'YourBotUsername',
             corsProxy: 'https://api.allorigins.win/raw?url=',
         };
 
         const prices = {
-            500: 1.5,
-            1000: 3,
-            2500: 7.4,
-            5000: 14,
-            10000: 28,
-            25000: 60,
+            500: 2,
+            1000: 4,
+            2500: 10,
+            5000: 18,
+            10000: 32,
+            25000: 70,
         };
 
         // ============================================================
@@ -995,22 +995,26 @@
         // ============================================================
         // BOT DETECTION
         // ============================================================
-        // إذا فتح المستخدم الموقع من البوت، يمكن تخصيص الترحيب
         (function detectBot() {
             const params = new URLSearchParams(window.location.search);
-            if (params.get('start') || params.get('bot')) {
-                showToast('🤖 Добро пожаловать из Telegram Bot!', 'success');
+            const fromBot = params.get('start');
+            if (fromBot) {
+                console.log('User opened from bot');
             }
         })();
 
         // ============================================================
-        // INIT
+        // INITIALIZATION
         // ============================================================
-        initReferral();
-        updatePayButton();
+        document.addEventListener('DOMContentLoaded', () => {
+            initReferral();
+        });
 
-        console.log('✅ Telegram Stars — Educational Platform');
-        console.log('ℹ️ This is a simulation for pentest education purposes.');
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initReferral);
+        } else {
+            initReferral();
+        }
     </script>
 </body>
 </html>
